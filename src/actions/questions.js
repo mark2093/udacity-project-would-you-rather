@@ -21,7 +21,7 @@ export function saveAQuestion (question) {
     }
   }
   
-  export function saveQuestionOfAVote (authUser, qid, answer) {
+  export function saveVoteOfAQuestion (authUser, qid, answer) {
     return {
       type: SAVE_VOTE_OF_A_QUESTION,
       authUser,
@@ -30,7 +30,7 @@ export function saveAQuestion (question) {
     }
   }
   
-  export function removeQuestionOfAVote (authedUser, qid, answer) {
+  export function removeVoteOfAQuestion (authedUser, qid, answer) {
     return {
       type: REMOVE_VOTE_OF_A_QUESTION,
       authedUser,
