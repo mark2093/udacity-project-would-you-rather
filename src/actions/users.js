@@ -7,7 +7,7 @@ export const SAVE_A_ANSWER = 'SAVE_USER_ANSWER'
 export const REMOVE_A_ANSWER = 'REMOVE_USER_ANSWER'
 export const USERS_UPDATE = 'USERS_UPDATE'
 
-export function saveAQuestion (authedUser, ques_id) {
+export function saveQuestionOfUser (authedUser, ques_id) {
     return {
       type: SAVE_A_ANSWER,
       authedUser,
@@ -15,7 +15,7 @@ export function saveAQuestion (authedUser, ques_id) {
     }
   }
   
-  export function removeAQuestion (authedUser, ques_id) {
+  export function removeQuestionOfUser (authedUser, ques_id) {
     return {
       type: SAVE_A_QUESTION,
       authedUser,
