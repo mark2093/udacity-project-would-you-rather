@@ -21,20 +21,20 @@ export function saveAQuestion (question) {
     }
   }
   
-  export function saveVoteOfAQuestion (authUser, qid, answer) {
+  export function saveVoteOfAQuestion (authUser, questid, answer) {
     return {
       type: SAVE_VOTE_OF_A_QUESTION,
       authUser,
-      qid,
+      questid,
       answer
     }
   }
   
-  export function removeVoteOfAQuestion (authedUser, qid, answer) {
+  export function removeVoteOfAQuestion (auth, questid, answer) {
     return {
       type: REMOVE_VOTE_OF_A_QUESTION,
-      authedUser,
-      qid,
+      auth,
+      questid,
       answer
     }
   }
