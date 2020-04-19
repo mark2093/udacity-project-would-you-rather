@@ -8,7 +8,8 @@ const previewQuestion = (props) => {
   const { question, author, answered } = props
   const questionLink = `/questions/${question.id}`
   return (
-    <Panel bsStyle="primary" className="QuestionContainer">
+    <Panel bsStyle={answered ? 'success' : 'primary'} >
+    
       <Panel.Heading>
         <Panel.Title componentClass="h3">
           {author.name} {answered ? 'asked:' : 'asks:'}
@@ -25,7 +26,7 @@ const previewQuestion = (props) => {
               <ListGroupItem>{question.optionOne.text}</ListGroupItem>
               <ListGroupItem>{question.optionTwo.text}</ListGroupItem>
             </ListGroup>
-            <Link className="btn btn-info" to={questionLink}>
+            <Link className={answered ? 'btn btn-danger' : 'btn btn-primary'} to={questionLink}>
               {answered ? viewResultsBtn() : answerQuestionBtn()}
             </Link>
           </Col>

@@ -8,12 +8,12 @@ const QuestionResults = (props) => {
     <Panel bsStyle="primary" className="QuestionContainer">
       <Panel.Heading>
         <Panel.Title componentClass="h3">
-          Asked by {author.name}
+          Ouestion {author.name}
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body>
         <Row>
-          <Col xs={3} className="test">
+          <Col xs={3}>
             <Image circle className="avatar" src={author.avatarURL} />
           </Col>
           <Col xs={9}>{resultsListGroup(props)}</Col>
@@ -32,20 +32,26 @@ const resultsListGroup = (props) => {
   const optTwoPercentage = (optTwoVotes / totalVotes) * 100
   return (
     <ListGroup>
-      <ListGroupItem bsStyle={optOne ? 'info' : null}>
+      <ListGroupItem bsStyle={optOne ? 'info' : 'warning'}>
         {optOne ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionOne.text}</p>
         <ProgressBar now={optOnePercentage} />
-        <div className="vote-summary">
-        <Label bsStyle="success">{optOneVotes} out of {totalVotes} votes</Label>
+        <div>
+        {optOneVotes>=optTwoVotes 
+          ?<Label bsStyle="success" > {optOneVotes} out of {totalVotes} votes</Label>
+        :<Label bsStyle="danger"> {optOneVotes} out of {totalVotes} votes</Label>
+        }
         </div>
       </ListGroupItem>
-      <ListGroupItem bsStyle={optTwo ? 'info' : null}>
+      <ListGroupItem bsStyle={optTwo ? 'info' : 'warning'}>
         {optTwo ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionTwo.text}</p>
         <ProgressBar now={optTwoPercentage} />
-        <div className="vote-summary">
-        <Label bsStyle="success">{optTwoVotes} out of {totalVotes} votes</Label>
+        <div>
+        {optTwoVotes>=optOneVotes
+          ?<Label bsStyle="success" > {optTwoVotes} out of {totalVotes} votes</Label>
+        :<Label bsStyle="danger"> {optTwoVotes} out of {totalVotes} votes</Label>
+        }
         </div>
       </ListGroupItem>
     </ListGroup>

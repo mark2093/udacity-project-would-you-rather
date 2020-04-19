@@ -41,7 +41,8 @@ class NewQuestion extends Component {
       <Panel.Heading>
         <Panel.Title componentClass="h3">
           <Glyphicon glyph="pencil" />
-          Create New Question
+          
+          Write A  New Question
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body>

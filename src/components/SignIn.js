@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAuthedLoggedin } from '../actions/authedUser'
-import { Panel, Button,FormGroup, FormControl, Glyphicon, Image } from 'react-bootstrap'
+import { Row,Col, Panel, Button,FormGroup, FormControl, Glyphicon, Image } from 'react-bootstrap'
 
 class SignIn extends Component {
 
   state = {
-    imgSrc: '/favicon.png',
+    imgSrc: './users.png',
     userToSignIn: null,
     disabled: true
   }
@@ -52,12 +52,13 @@ class SignIn extends Component {
 
   render() {
     return (
-      
+      <Row>
+        <Col xs={6} xsOffset={3}>
         <Panel bsStyle="primary">
           <Panel.Heading>
             <Panel.Title componentClass="h3">
               <Glyphicon glyph="user" />
-              Sign In
+              Log In
             </Panel.Title>
           </Panel.Heading>
           <Panel.Body className="signin">
@@ -65,11 +66,11 @@ class SignIn extends Component {
             {this.renderForm()}
           </Panel.Body>
         </Panel>
-       
+        </Col>
+      </Row>
     );
   }
 }
-
 function mapStateToProps ({ users }) {
   return { users }
 }

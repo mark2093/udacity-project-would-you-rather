@@ -19,7 +19,7 @@ const question = (props) => {
         ))}
       </div>
     : <div className="center">
-        No more questions :(
+        No More Question Currently Available :(
       </div>
 }
 

@@ -21,13 +21,13 @@ class Navigation extends Component {
         </NavItem>
       </LinkContainer>
       <LinkContainer to="/add" activeClassName='active-link'>
-        <NavItem>New Question</NavItem>
+        <NavItem>New Poll Question</NavItem>
         </LinkContainer>
         <LinkContainer to="/leaderboard" activeClassName='active-link'>
       <NavItem>Leaderboard</NavItem>
       </LinkContainer>
-      <NavDropdown title={this.getUserInfo()}  id="basic-nav-dropdown">
-        <MenuItem href="/" onClick={this.logout}>Logout</MenuItem>
+      <NavDropdown pullRight title={this.getUserInfo()}  id="basic-nav-dropdown">
+        <MenuItem  href="/" onClick={this.logout}>Logout</MenuItem>
       </NavDropdown>
     </Nav>
   )
@@ -38,8 +38,6 @@ class Navigation extends Component {
       <Image circle className="avatar" src={this.props.avatar} />
     </span>
   )
-
-  //get
 
   render() {
     return (

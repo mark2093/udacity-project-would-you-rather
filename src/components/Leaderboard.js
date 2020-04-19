@@ -5,38 +5,34 @@ import { Row, Col, Panel, Image, Well,
 
 class Leaderboard extends Component {
 
-  getLeader = (l, index) => (
-    <Panel key={l.id} bsStyle="primary">
+  getScoreboard = (I, index) => (
+    <Panel key={I.id} bsStyle="success">
       <Panel.Heading>
-        <Panel.Title componentClass="h3">
+        <Panel.Title componentClass="h2">
           <Badge className="leader-badge">{index + 1} </Badge>
-          {l.name}
+          {I.name}
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body>
         <Row>
           <Col xs={3}>
-            <Image circle className="avatar" src={l.avatarURL} />
+            <Image circle className="avatar" src={I.avatarURL} />
           </Col>
           <Col xs={5}>
             <ListGroup className="leaderboard-stat">
               <ListGroupItem>
-                <span>{(Object.keys(l.answers)).length}</span>
-                Answered Questions
+            Number of Answered Questions = <span>{(Object.keys(I.answers)).length}</span>
               </ListGroupItem>
               <ListGroupItem>
-                <span>{l.questions.length}</span>
-                Created Questions
+            Number of Questions Created = <span>{I.questions.length}</span>
               </ListGroupItem>
             </ListGroup>
           </Col>
           <Col xs={4}>
             <Panel className="score">
-              <Panel.Heading className="scoreHeader">Score</Panel.Heading>
+              <Panel.Heading className="scoreHeader">Total Player Score</Panel.Heading>
               <Panel.Body>
-                <p>
-                  {(Object.keys(l.answers)).length + l.questions.length}
-                </p>
+              {(Object.keys(I.answers)).length + I.questions.length}
               </Panel.Body>
             </Panel>
           </Col>
@@ -48,8 +44,8 @@ class Leaderboard extends Component {
   render() {
     return (
       <Well>
-        {this.props.leaders.map((leader, index) => (
-          this.getLeader(leader, index)
+        {this.props.winners.map((leader, index) => (
+          this.getScoreboard(leader, index)
         ))}
       </Well>
     );
@@ -57,14 +53,14 @@ class Leaderboard extends Component {
 }
 
 function mapStateToProps ({ users, authedUser }) {
-  const sortedLeaders = (Object.values(users)).sort((a, b) => {
+  const sortedWinners = (Object.values(users)).sort((a, b) => {
     const aRank = (Object.keys(a.answers)).length + a.questions.length
     const bRank = (Object.keys(b.answers)).length + b.questions.length
     return bRank >= aRank
   })
   return {
     authedUser,
-    leaders: sortedLeaders
+    winners: sortedWinners
   }
 }
 
