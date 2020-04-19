@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar-user-info .avatar {
+  display: inline-block;
+  margin: 0;
+  margin-left: 10px;
+  width: auto;
+  max-height: 1.8em;
+}
+
+.navbar-user-info .loggedin{
+  margin-left: 500px;
+}
+
+.avatar {
+  width: 100%;
+  max-width: 150px;
+}
+
+.signin {
+  text-align: center;
+}
+.signin img {
+  border-radius: 10px;
+  margin-bottom: 1em;
+  height: 5em;
+}
+
+.question-list-container {
+  border-radius: 0;
+}

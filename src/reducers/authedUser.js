@@ -1,23 +1,15 @@
 import {
-    AUTHED_SIGN_IN, 
-    AUTHED_SIGN_OUT
-} from "../actions/auth";
+  AUTHED_SIGN_IN,
+  CURRENT_AUTHED_USER,
+  AUTHED_SIGN_OUT } from '../actions/authedUser'
 
-    export default function authedUser (state = null, action) {
-        switch (action.type) {
-            case AUTHED_SIGN_IN:
-            return {
-                ...state,
-                authenticated_User: action.authenticated_User,
-                siggnedInUser: action.siggnedInUser
-            };
-            case AUTHED_SIGN_OUT:
-            return {
-                ...state,
-                authenticated_User: action.authenticated_User,
-                siggnedInUser: action.siggnedInUser
-            };
-            default:
-                return state;
-        }
-    }
+export default function authedUser (state = null, action) {
+  switch (action.type) {
+    case AUTHED_SIGN_IN :
+   case CURRENT_AUTHED_USER :
+    case AUTHED_SIGN_OUT :
+      return action.id
+    default :
+      return state
+  }
+}

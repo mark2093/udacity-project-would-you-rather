@@ -1,62 +1,56 @@
 import {
-    SAVE_A_ANSWER,
-    REMOVE_A_ANSWER,
-    SAVE_A_QUESTION,
-    REMOVE_A_QUESTION,
-    usersUpdate
-     } from '../actions/users'
-  
-  export default function users (state = {}, action) {
-    switch(action.type) {
-        case SAVE_A_ANSWER :
-        return {
-          ...state,
-          [action.authedUser] : {
-            ...state[action.authedUser],
-            answers : {
-              ...state[action.authedUser].answers,
-              [action.ques_id] : action.answer
-            }
-          }
-        }
+  SAVE_A_QUESTION,
+  REMOVE_A_QUESTION,
+  SAVE_A_ANSWER,
+  REMOVE_A_ANSWER,
+  RECEIVE_USERS } from '../actions/users'
 
-        case REMOVE_A_ANSWER :
-        const { [action.ques_id]: value, ...newAnswers} = state[action.authedUser].answers
-        return {
-          ...state,
-          [action.authedUser] : {
-            ...state[action.authedUser],
-            answers : newAnswers
+export default function users (state = {}, action) {
+  switch(action.type) {
+    case SAVE_A_QUESTION :
+      return {
+        ...state,
+        [action.user] : {
+          ...state[action.user],
+          questions: [...state[action.user].questions, action.qid]
+        }
+      }
+    case REMOVE_A_QUESTION :
+      return {
+        ...state,
+        [action.user] : {
+          ...state[action.user],
+          questions: state[action.user].questions.filter((question) => {
+            return question !== action.qid
+          })
+        }
+      }
+    case SAVE_A_ANSWER :
+      return {
+        ...state,
+        [action.user] : {
+          ...state[action.user],
+          answers : {
+            ...state[action.user].answers,
+            [action.qid] : action.answer
           }
         }
-
-
-      case SAVE_A_QUESTION :
-        return {
-          ...state,
-          [action.user] : {
-            ...state[action.authedUser],
-            questions: [...state[action.authedUser].questions, action.ques_id]
-          }
+      }
+    case REMOVE_A_ANSWER :
+      const { [action.qid]: value, ...newAnswers} = state[action.user].answers
+      return {
+        ...state,
+        [action.user] : {
+          ...state[action.user],
+          answers : newAnswers
         }
-      case REMOVE_A_QUESTION :
-        return {
-          ...state,
-          [action.user] : {
-            ...state[action.authedUser],
-            questions: state[action.authedUser].questions.filter((question) => {
-              return question !== action.ques_id
-            })
-          }
-        }
-      
-      
-      case usersUpdate :
-        return {
-          ...state,
-          ...action.authedUsers
-        }
-      default :
-        return state
-    }
+      }
+    case RECEIVE_USERS :
+      return {
+        ...state,
+        ...action.users
+      }
+    default :
+      return state
   }
+}
