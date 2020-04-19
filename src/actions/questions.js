@@ -1,5 +1,5 @@
 import { _getQuestions } from '../utils/_DATA'
-
+import {showLoading, hideLoading} from 'react-redux-loading';
 export const SAVE_A_QUESTION = 'SAVE_A_QUESTION'
 export const REMOVE_A_QUESTION = 'REMOVE_A_QUESTION'
 export const SAVE_VOTE_OF_A_QUESTION = 'SAVE_VOTE_OF_A_QUESTION'
@@ -48,8 +48,10 @@ export function updateAQuestion (questions) {
 
 export function fetchQuestions () {
   return (dispatch) => {
+    dispatch(showLoading());
     return _getQuestions().then((questions) => {
       dispatch(updateAQuestion(questions))
+      dispatch(hideLoading());
     })
   }
 }
