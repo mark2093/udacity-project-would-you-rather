@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Row, Col, Panel, Image, Well,
+import { Row, Col, Panel, Image,
   ListGroup, ListGroupItem, Badge } from 'react-bootstrap'
 
 class Leaderboard extends Component {
@@ -19,7 +19,7 @@ class Leaderboard extends Component {
             <Image circle className="avatar" src={I.avatarURL} />
           </Col>
           <Col xs={5}>
-            <ListGroup className="leaderboard-stat">
+            <ListGroup>
               <ListGroupItem>
             Number of Answered Questions = <span>{(Object.keys(I.answers)).length}</span>
               </ListGroupItem>
@@ -43,20 +43,20 @@ class Leaderboard extends Component {
 
   render() {
     return (
-      <Well>
+      <div>
         {this.props.winners.map((leader, index) => (
           this.getScoreboard(leader, index)
         ))}
-      </Well>
+      </div>
     );
   }
 }
 
 function mapStateToProps ({ users, authedUser }) {
   const sortedWinners = (Object.values(users)).sort((a, b) => {
-    const aRank = (Object.keys(a.answers)).length + a.questions.length
-    const bRank = (Object.keys(b.answers)).length + b.questions.length
-    return bRank >= aRank
+    const first_place = (Object.keys(a.answers)).length + a.questions.length
+    const second_place = (Object.keys(b.answers)).length + b.questions.length
+    return second_place >= first_place
   })
   return {
     authedUser,

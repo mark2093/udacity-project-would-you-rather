@@ -37,10 +37,10 @@ class NewQuestion extends Component {
   }
 
   renderForm = () => (
-    <Panel bsStyle="primary">
+    <Panel bsStyle="info">
       <Panel.Heading>
         <Panel.Title componentClass="h3">
-          <Glyphicon glyph="pencil" />
+          
           
           Write A  New Question
         </Panel.Title>
@@ -52,18 +52,20 @@ class NewQuestion extends Component {
             <FormControl
               id="optionOneText"
               type="text"
-              placeholder="Enter First Option"
+              placeholder=" Please Enter the First Choice"
+              required
               onChange={this.handleChange}/>
           </FormGroup>
-          <p className="small">OR</p>
+        
           <FormGroup>
             <FormControl
+              required
               id="optionTwoText"
               type="text"
-              placeholder="Enter Second Option"
+              placeholder="Please Enter the Second Choice"
               onChange={this.handleChange}/>
           </FormGroup>
-          <Button disabled={this.state.disabled} type="submit" bsStyle="info">
+          <Button disabled={this.state.disabled} type="submit" bsStyle="success">
             <span><Glyphicon glyph="send" /> Submit</span>
           </Button>
         </form>

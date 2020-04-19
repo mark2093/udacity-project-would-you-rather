@@ -1,13 +1,13 @@
 import {
-  SAVE_A_QUESTION,
-  REMOVE_A_QUESTION,
-  SAVE_A_ANSWER,
-  REMOVE_A_ANSWER,
+  SAVE_A_USER_QUESTION,
+  REMOVE_A_USER_QUESTION,
+  SAVE_A_USER_ANSWER,
+  REMOVE_A_USER_ANSWER,
   RECEIVE_USERS } from '../actions/users'
 
 export default function users (state = {}, action) {
   switch(action.type) {
-    case SAVE_A_QUESTION :
+    case SAVE_A_USER_QUESTION :
       return {
         ...state,
         [action.user] : {
@@ -15,7 +15,7 @@ export default function users (state = {}, action) {
           questions: [...state[action.user].questions, action.qid]
         }
       }
-    case REMOVE_A_QUESTION :
+    case REMOVE_A_USER_QUESTION :
       return {
         ...state,
         [action.user] : {
@@ -25,7 +25,7 @@ export default function users (state = {}, action) {
           })
         }
       }
-    case SAVE_A_ANSWER :
+    case SAVE_A_USER_ANSWER :
       return {
         ...state,
         [action.user] : {
@@ -36,7 +36,7 @@ export default function users (state = {}, action) {
           }
         }
       }
-    case REMOVE_A_ANSWER :
+    case REMOVE_A_USER_ANSWER :
       const { [action.qid]: value, ...newAnswers} = state[action.user].answers
       return {
         ...state,

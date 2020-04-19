@@ -3,7 +3,7 @@ import {
   _saveQuestion,
   _saveQuestionAnswer } from '../utils/_DATA'
 import {
-  saveQuestionOfUser, removeQuestionOfUser,saveAAnswer,removeAAnswer,fetchUsers  } from './users'
+  saveQuestionOfUser, removeQuestionOfUser,saveAUserAnswer,removeAUserAnswer,fetchUsers  } from './users'
 import {
   saveVoteOfAQuestion,removeVoteOfAQuestion,fetchQuestions,saveAQuestion,removeAQuestion } from './questions'
 
@@ -17,25 +17,27 @@ export function handleCreateAQuestion (author, optionOneText, optionTwoText) {
     return _saveQuestion(question).then((q) => {
       dispatch(saveAQuestion(q))
       dispatch(saveQuestionOfUser(q.author, q.id))
-    }).catch(() => {
+    }).catch((q) => {
+      console.log("Question =",question,"Question author=",question.author,q.id)
       dispatch(removeAQuestion(question))
-      dispatch(removeQuestionOfUser(question.author, question.id))
+      dispatch(removeQuestionOfUser(question.author, q.id))
       alert('An Error Occured!!. Please try again.')
     })
   }
 }
 
+
 export function handleQuestionPoll (authedUser, qid, answer) {
   return (dispatch) => {
     dispatch(saveVoteOfAQuestion(authedUser, qid, answer))
-    dispatch(saveAAnswer(authedUser, qid, answer))
+    dispatch(saveAUserAnswer(authedUser, qid, answer))
     return _saveQuestionAnswer({
       authedUser: authedUser,
       qid: qid,
       answer: answer
     }).catch(() => {
       dispatch(removeVoteOfAQuestion(authedUser, qid, answer))
-      dispatch(removeAAnswer(authedUser, qid, answer))
+      dispatch(removeAUserAnswer(authedUser, qid, answer))
       alert('An Error Occured!!. Please try again.')
     })
   }

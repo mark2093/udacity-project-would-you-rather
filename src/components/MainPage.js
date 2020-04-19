@@ -5,14 +5,14 @@ import Questions from './Question'
 
 const mainPage = ({answered, unanswered}) => {
   return (
-    <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
-      <Tab eventKey={1} title="Unanswered Questions">
-        <div className="question-list-container">
+    <Tabs defaultActiveKey={1} >
+      <Tab eventKey={1} title="Questions">
+        <div>
           <Questions questions={unanswered} answered={false} />
         </div>
       </Tab>
-      <Tab eventKey={2} title="Answered Questions">
-        <div className="question-list-container">
+      <Tab eventKey={2} title="Answered">
+        <div>
           <Questions questions={answered} answered={true} />
         </div>
       </Tab>

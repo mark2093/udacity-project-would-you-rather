@@ -38,7 +38,6 @@ export function removeVoteOfAQuestion (authedUser, qid, answer) {
   }
 }
 
-/* update state after fetch */
 export function updateAQuestion (questions) {
   return {
     type: UPDATE_A_QUESTIONS,
@@ -46,7 +45,7 @@ export function updateAQuestion (questions) {
   }
 }
 
-/* async call to fetch all questions */
+
 export function fetchQuestions () {
   return (dispatch) => {
     return _getQuestions().then((questions) => {

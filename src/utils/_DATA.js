@@ -137,6 +137,12 @@ export function _getQuestions () {
     setTimeout(() => res({...questions}), 1000)
   })
 }
+export function _getQuestion (id) {
+  return new Promise((res, rej) => {
+    setTimeout(() => res(questions[id]), 1000)
+  })
+}
+
 
 function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {

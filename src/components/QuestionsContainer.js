@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Well, Glyphicon } from 'react-bootstrap'
+import {  Glyphicon } from 'react-bootstrap'
 import AnswerAQuestion from './AnswerAQuestion'
 import Results from './Results';
 
@@ -14,7 +14,7 @@ const questionsContainer = ({
 }) => {
 
   const renderNoQuestions = () => (
-    <div className="center">
+    <div>
       <Glyphicon glyph="alert" /> Currently No More Question Available 
     </div>
   );
@@ -38,9 +38,9 @@ const questionsContainer = ({
   );
 
   return (
-    <Well>
+    <div>
       {questionDoesNotExist ? renderNoQuestions() : optionToShow() }
-    </Well>
+    </div>
   )
 }
 

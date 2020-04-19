@@ -8,16 +8,16 @@ const previewQuestion = (props) => {
   const { question, author, answered } = props
   const questionLink = `/questions/${question.id}`
   return (
-    <Panel bsStyle={answered ? 'success' : 'primary'} >
+    <Panel bsStyle={answered ? 'success' : 'info'} >
     
       <Panel.Heading>
         <Panel.Title componentClass="h3">
-          {author.name} {answered ? 'asked:' : 'asks:'}
+          Poll Question {answered ? 'was asked' : 'is asked'} by {author.name} 
         </Panel.Title>
       </Panel.Heading>
       <Panel.Body>
         <Row>
-          <Col xs={3} className="test">
+          <Col xs={3}>
             <Image circle className="avatar" src={author.avatarURL} />
           </Col>
           <Col xs={9}>
@@ -37,7 +37,7 @@ const previewQuestion = (props) => {
 }
 
 const answerQuestionBtn = () => (
-  <span><Glyphicon glyph="question-sign" />  Answer Question</span>
+  <span><Glyphicon glyph="check" />  Answer Question</span>
 )
 
 const viewResultsBtn = () => (

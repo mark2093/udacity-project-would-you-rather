@@ -35,7 +35,10 @@ const resultsListGroup = (props) => {
       <ListGroupItem bsStyle={optOne ? 'info' : 'warning'}>
         {optOne ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionOne.text}</p>
-        <ProgressBar now={optOnePercentage} />
+        {optOneVotes>optTwoVotes 
+          ?<ProgressBar bsStyle="primary" now={optOnePercentage} />
+          : <ProgressBar bsStyle="warning" now={optOnePercentage} />
+        }
         <div>
         {optOneVotes>=optTwoVotes 
           ?<Label bsStyle="success" > {optOneVotes} out of {totalVotes} votes</Label>
@@ -46,7 +49,10 @@ const resultsListGroup = (props) => {
       <ListGroupItem bsStyle={optTwo ? 'info' : 'warning'}>
         {optTwo ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionTwo.text}</p>
-        <ProgressBar now={optTwoPercentage} />
+        {optTwoVotes>=optOneVotes 
+          ?<ProgressBar bsStyle="primary" now={optTwoPercentage} />
+          : <ProgressBar bsStyle="warning" now={optTwoPercentage} />
+        }
         <div>
         {optTwoVotes>=optOneVotes
           ?<Label bsStyle="success" > {optTwoVotes} out of {totalVotes} votes</Label>
