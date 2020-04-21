@@ -3,9 +3,17 @@ import {
   _saveQuestion,
   _saveQuestionAnswer } from '../utils/_DATA'
 import {
-  saveQuestionOfUser, removeQuestionOfUser,saveAUserAnswer,removeAUserAnswer,fetchUsers  } from './users'
+  saveQuestionOfUser, 
+  removeQuestionOfUser,
+  saveAUserAnswer,
+  removeAUserAnswer,
+  fetchUsers  } from './users'
 import {
-  saveVoteOfAQuestion,removeVoteOfAQuestion,fetchQuestions,saveAQuestion,removeAQuestion } from './questions'
+  saveVoteOfAQuestion,
+  removeVoteOfAQuestion,
+  fetchQuestions,
+  saveAQuestion,
+  removeAQuestion } from './questions'
 
 export function handleCreateAQuestion (author, optionOneText, optionTwoText) {
   const question = {
