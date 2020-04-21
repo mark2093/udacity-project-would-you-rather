@@ -24,17 +24,17 @@ class App extends Component {
   nonauthed = () => (
     <Switch>
       <Route exact path='/' component={SignIn} />
-      <Redirect from='*' to='/' />
+      <Redirect to='/' />
     </Switch>
   )
 
   authed = () => (
     <Switch>
-      { <Route exact path='/' component={MainPage} /> }
+     <Route exact path='/' component={MainPage} /> 
       <Route exact path='/add' component={NewQuestion} />
       <Route exact path='/leaderboard' component={Leaderboard} />
       { <Route exact path='/questions/:questionId' component={QuestionsContainer} /> }
-      <Redirect from='*' to='/' />
+      <Redirect from ="*" to='/' />
     </Switch>
   )
 

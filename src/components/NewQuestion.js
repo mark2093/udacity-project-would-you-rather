@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { handleCreateAQuestion } from '../actions/shared.js'
-import { Panel, FormGroup, FormControl, Button, Glyphicon } from 'react-bootstrap'
+import { Panel, FormGroup, FormControl, 
+        Button, Glyphicon } from 'react-bootstrap'
 
 class NewQuestion extends Component {
 

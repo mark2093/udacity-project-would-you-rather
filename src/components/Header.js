@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { getAuthedLoggedout } from '../actions/authedUser'
 import { Navbar, Nav, NavItem,
-  MenuItem, NavDropdown, Image } from 'react-bootstrap'
+        MenuItem, NavDropdown, Image } from 'react-bootstrap'
 
-class Navigation extends Component {
+class Header extends Component {
 
   logout = (e) => {
     e.preventDefault()
@@ -26,9 +26,13 @@ class Navigation extends Component {
         <LinkContainer to="/leaderboard" activeClassName='active-link'>
       <NavItem>Leaderboard</NavItem>
       </LinkContainer>
-      <NavDropdown pullRight title={this.getUserInfo()}  id="basic-nav-dropdown">
+      {
+        this.props.userIsAuthed ?
+      <NavDropdown pullRight title={  this.getUserInfo()  }  id="basic-nav-dropdown">
         <MenuItem  href="/" onClick={this.logout}>Logout</MenuItem>
       </NavDropdown>
+      : null
+    }
     </Nav>
   )
 
@@ -52,7 +56,7 @@ class Navigation extends Component {
                 <Navbar.Toggle />
               </Navbar.Header>
               <Navbar.Collapse>
-                {this.props.userIsAuthed && this.getNavItems()}
+                {this.getNavItems()}
               </Navbar.Collapse>
            
       </Navbar>
@@ -68,4 +72,4 @@ function mapStateToProps ({ authedUser, users }) {
   }
 }
 
-export default connect(mapStateToProps)(Navigation)
+export default connect(mapStateToProps)(Header)

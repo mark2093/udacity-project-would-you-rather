@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getAuthedLoggedin } from '../actions/authedUser'
-import { Row,Col, Panel, Button,FormGroup, FormControl, Glyphicon, Image } from 'react-bootstrap'
+import { Row,Col, Panel,Button,FormGroup, 
+         FormControl,Glyphicon,Image } from 'react-bootstrap'
 
 class SignIn extends Component {
 

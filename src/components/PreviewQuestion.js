@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Row, Col, Panel, Image,
-  ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
+         ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
 
 const previewQuestion = (props) => {
   const { question, author, answered } = props

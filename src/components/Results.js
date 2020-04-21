@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Panel, Image, ListGroup,
-  ListGroupItem, ProgressBar, Badge, Glyphicon, Label } from 'react-bootstrap'
+          ListGroupItem, ProgressBar, 
+          Badge, Glyphicon, Label } from 'react-bootstrap'
 
 const QuestionResults = (props) => {
   const { author } = props
