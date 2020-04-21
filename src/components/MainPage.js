@@ -5,7 +5,7 @@ import Questions from './Question'
 
 const mainPage = ({answered, unanswered}) => {
   return (
-    <Tabs defaultActiveKey={1} >
+    <Tabs defaultActiveKey={1} id="questions-contol-tabs">
       <Tab eventKey={1} title="Questions">
         <div>
           <Questions questions={unanswered} answered={false} />
