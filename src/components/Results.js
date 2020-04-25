@@ -37,7 +37,7 @@ const resultsListGroup = (props) => {
         {optOne ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionOne.text}</p>
         {optOneVotes>optTwoVotes 
-          ?<ProgressBar bsStyle="primary" now={optOnePercentage} />
+          ?<ProgressBar bsStyle="info" now={optOnePercentage} />
           : <ProgressBar bsStyle="warning" now={optOnePercentage} />
         }
         <div>
@@ -51,7 +51,7 @@ const resultsListGroup = (props) => {
         {optTwo ? <Badge><Glyphicon glyph="star" /> You Voted</Badge> : null}
         <p>Would you rather {question.optionTwo.text}</p>
         {optTwoVotes>=optOneVotes 
-          ?<ProgressBar bsStyle="primary" now={optTwoPercentage} />
+          ?<ProgressBar bsStyle="info" now={optTwoPercentage} />
           : <ProgressBar bsStyle="warning" now={optTwoPercentage} />
         }
         <div>

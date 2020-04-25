@@ -22,7 +22,7 @@ const question = (props) => {
       <Row>
         <Col>
         <br />
-          <Alert bsStyle="active" bsSize="large">
+          <Alert bsStyle="danger" bsSize="large">
             No More <strong bsStyle="danger">Question </strong>Currently Available :(
         </Alert>
         </Col>

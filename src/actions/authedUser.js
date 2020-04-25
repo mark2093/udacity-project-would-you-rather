@@ -27,6 +27,7 @@ export function handleAuthedUser(id) {
   return (dispatch) => {
       dispatch(showLoading());
       getUser(id).then((authedUser) => {
+        console.log("ACTION HELLO","authedUser",authedUser,"id",id)
           dispatch(getAuthedLoggedin(authedUser));
           dispatch(hideLoading());
       });
