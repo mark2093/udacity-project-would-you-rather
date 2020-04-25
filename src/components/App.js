@@ -14,8 +14,7 @@ import PrivateRoute from './PrivateRoute'
 // CSS & BootStrap imports
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Grid, Row, Col } from 'react-bootstrap'
-
-
+import NotFound from './NotFound';
 class App extends Component {
   componentDidMount() {
     this.props.getAuth(getCurrentAuthedUser())
@@ -68,7 +67,7 @@ class App extends Component {
       <PrivateRoute exact path='/add' component={NewQuestion} displayLogin={ displayLogin }  />
       <PrivateRoute exact path='/leaderboard' component={Leaderboard}  displayLogin={ displayLogin } />
       <PrivateRoute exact path='/questions/:questionId' component={QuestionsContainer} displayLogin={ displayLogin } />
-      
+      <Route component={NotFound} />
     </Switch>
           </div>
         </Fragment>
